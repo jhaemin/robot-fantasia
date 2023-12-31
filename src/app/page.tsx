@@ -13,9 +13,11 @@ const $introEnded = atom(false)
 const $showTrackHeader = atom(false)
 const $hideCursor = atom(false)
 
-const tracks: {
+export interface Track {
   title: string
-}[] = [
+}
+
+const tracks: Track[] = [
   { title: '출발은 떨렸지만' },
   { title: '배달은 자신 있어' },
   { title: '복귀해도 될까요' },
