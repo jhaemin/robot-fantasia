@@ -168,7 +168,7 @@ export default function Home() {
           />
         </div>
 
-        <h1 className="robot-fantasia-title">로봇 판타지아</h1>
+        <h1 className="robot-fantasia-title">로봇판타지아</h1>
         <p className="album-description">
           <span className="no-break">사람과 사람, 행성과 행성,</span>{' '}
           <span className="no-break">은하와 은하 사이를 잇는</span>
