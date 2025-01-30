@@ -1,0 +1,126 @@
+.theater {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  background-color: #000;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.controller {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  // background-color: rgba(#000, 0.5);
+  background-image: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.5));
+
+  transition: all 0.5s ease;
+
+  &.hidden {
+    opacity: 0;
+    cursor: none;
+
+    & * {
+      pointer-events: none;
+    }
+  }
+}
+
+.playback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .playback-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    height: 80px;
+
+    transition: all 0.1s ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .playback-button svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px 20px;
+}
+
+.bb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.track-number {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.track-title {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  height: 3px;
+  background-color: rgba(#fff, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  overflow: hidden;
+
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#fff, 0.85);
+    transform-origin: left;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-out;
+  }
+}

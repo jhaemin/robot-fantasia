@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import './fonts.css'
+import { FullScreen } from './full-screen'
 import './globals.scss'
 import './page.scss'
+import './player/page.scss'
 
 export const metadata: Metadata = {
   title: '로봇판타지아',
@@ -39,7 +41,11 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <div className="cross-fade" />
+        <FullScreen />
+      </body>
     </html>
   )
 }
