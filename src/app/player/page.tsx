@@ -3,7 +3,7 @@
 import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
 import { atom } from 'nanostores'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { tracks } from '../tracks'
 import { BackwardIcon } from './icons/backward-icon'
 import { ForwardIcon } from './icons/forward-icon'
@@ -88,6 +88,12 @@ export default function Player() {
   function setProgressBarPosition(percent: number) {
     progressBarRef.current.style.transform = `translateX(${-100 + percent}%)`
   }
+
+  useEffect(() => {
+    return () => {
+      $trackNumber.set(1)
+    }
+  }, [])
 
   return (
     <div>
