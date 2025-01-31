@@ -90,6 +90,9 @@ export default function Player() {
   }
 
   useEffect(() => {
+    // Sync the playing state (e.g. HMR)
+    $isPlaying.set(!videoRef.current.paused)
+
     return () => {
       $trackNumber.set(1)
     }
