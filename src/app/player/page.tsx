@@ -45,12 +45,14 @@ export default function Player() {
   function playPreviousTrack() {
     const time = videoRef.current.currentTime
 
+    // If the video is already playing for more than 3 seconds, restart the track
+    // Animates the progress bar to the beginning
     if (time > 3) {
       videoRef.current.currentTime = 0
       return
     }
 
-    setProgressBarPosition(0)
+    setProgressBarPosition(0, true)
 
     const previousTrackNumber = trackNumber === 1 ? 9 : trackNumber - 1
 
@@ -65,7 +67,7 @@ export default function Player() {
   }
 
   function playNextTrack() {
-    setProgressBarPosition(0)
+    setProgressBarPosition(0, true)
 
     const nextTrackNumber = trackNumber === 9 ? 1 : trackNumber + 1
 
@@ -85,8 +87,20 @@ export default function Player() {
     videoElm.currentTime = (percent / 100) * videoElm.duration
   }
 
-  function setProgressBarPosition(percent: number) {
+  /**
+   * @param percent
+   * @param immediate - If true, the progress bar will not animate
+   */
+  function setProgressBarPosition(percent: number, immediate = false) {
+    if (immediate) {
+      progressBarRef.current.style.transition = 'none'
+    }
+
     progressBarRef.current.style.transform = `translateX(${-100 + percent}%)`
+
+    setTimeout(() => {
+      progressBarRef.current.removeAttribute('style')
+    }, 0)
   }
 
   useEffect(() => {
