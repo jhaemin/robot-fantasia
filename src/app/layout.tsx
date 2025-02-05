@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './fonts.css'
-import { FullScreen } from './full-screen'
+import { Fullscreen } from './full-screen'
 import './globals.scss'
 import './page.scss'
 import './player/page.scss'
@@ -44,7 +44,7 @@ export default function RootLayout({
       <body>
         {children}
         <div className="cross-fade" />
-        <FullScreen />
+        <Fullscreen />
       </body>
     </html>
   )

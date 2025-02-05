@@ -60,7 +60,10 @@ export default function Player() {
 
     const videoElm = videoRef.current
 
-    videoElm.src = `/media/track-${previousTrackNumber}.mp4`
+    videoElm.querySelector(
+      'source'
+    )!.src = `/media/track-${previousTrackNumber}.mp4`
+    videoElm.load()
     videoElm.currentTime = 0
 
     videoElm.play()
@@ -75,7 +78,10 @@ export default function Player() {
 
     const videoElm = videoRef.current
 
-    videoElm.src = `/media/track-${nextTrackNumber}.mp4`
+    videoElm.querySelector(
+      'source'
+    )!.src = `/media/track-${nextTrackNumber}.mp4`
+    videoElm.load()
     videoElm.currentTime = 0
 
     videoElm.play()
@@ -120,7 +126,6 @@ export default function Player() {
           className="video-player"
           role="img"
           playsInline
-          src="/media/track-1.mp4"
           onLoadStart={() => {}}
           onLoadedMetadata={() => {}}
           onLoadedData={() => {}}
@@ -147,7 +152,9 @@ export default function Player() {
               -100 + percent
             }%)`
           }}
-        />
+        >
+          <source src="/media/track-1.mp4" type="video/mp4" />
+        </video>
 
         <div className="curtain" />
       </div>

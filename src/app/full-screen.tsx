@@ -3,25 +3,25 @@
 import { atom } from 'nanostores'
 import { useEffect } from 'react'
 
-export const $fullScreen = atom(false)
+export const $fullscreen = atom(false)
 
-export function FullScreen() {
+export function Fullscreen() {
   useEffect(() => {
-    function onFullScreenChange() {
-      $fullScreen.set(!!document.fullscreenElement)
+    function onFullscreenChange() {
+      $fullscreen.set(!!document.fullscreenElement)
     }
 
-    document.addEventListener('fullscreenchange', onFullScreenChange)
+    document.addEventListener('fullscreenchange', onFullscreenChange)
 
     return () => {
-      document.removeEventListener('fullscreenchange', onFullScreenChange)
+      document.removeEventListener('fullscreenchange', onFullscreenChange)
     }
   }, [])
 
   return null
 }
 
-export function toggleFullScreen() {
+export function toggleFullscreen() {
   if (document.fullscreenElement) {
     document.exitFullscreen()
   } else {

@@ -80,14 +80,15 @@ export default function Home() {
           muted
           role="img"
           playsInline
-          src="/media/track-1.mp4"
           onCanPlay={() => {
             $videoLoaded.set(true)
           }}
           onEnded={() => {
             playNextTrack()
           }}
-        />
+        >
+          <source src="/media/track-1.mp4" type="video/mp4" />
+        </video>
 
         <div className="blurry-cover" />
       </div>
@@ -101,11 +102,12 @@ export default function Home() {
             muted
             role="img"
             playsInline
-            src="/cover.mp4"
             onCanPlay={() => {
               $coverVideoLoaded.set(true)
             }}
-          />
+          >
+            <source src="/cover.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <h1 className="robot-fantasia-title">로봇판타지아</h1>
